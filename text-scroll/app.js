@@ -3,7 +3,7 @@ window.onload = function() {
   // set up html elements
   let body = document.body;
   let container = document.getElementsByClassName("container")[0];
-  let additionalElements = 3;
+  let additionalElements = 15;
   
   for (let i = 0; i < additionalElements; i++) {
     let containerClone = container.cloneNode(true);
@@ -18,8 +18,9 @@ window.onload = function() {
 
     container.appendChild(clone);
     let offsetWidth = list.offsetWidth;
+    let speed = 100;
 
-    let tl = gsap.timeline({ defaults: { duration: 15 }, repeat: -1});
+    let tl = gsap.timeline({ defaults: { duration: offsetWidth / speed }, repeat: -1});
     tl.fromTo([list, clone], {x: 0}, { x: -offsetWidth, ease: Linear.easeNone});
     tl.set(list, {x: offsetWidth, duration: 0});
     tl.to(clone, { x: -2 * offsetWidth, ease: Linear.easeNone});
@@ -30,8 +31,23 @@ window.onload = function() {
     }
   }
 
-  document.querySelectorAll(".container").forEach((container, i) => {
+  let containers = document.querySelectorAll(".container");
+  containers.forEach((container, i) => {
     animateText(container, i);
   });
+
+  ScrollTrigger.batch(containers, { 
+    start: "top bottom",
+    end: "bottom bottom",
+    ease: "power2.in",
+    scrub: 1,
+    duration: 2,
+    ease: "power2.in",
+    onEnter: (elements, triggers) => {
+      gsap.from(elements, {
+        opacity: 0, 
+        stagger: 0.15});
+    }
+  })
 
 }
