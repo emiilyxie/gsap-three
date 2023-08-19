@@ -3,10 +3,12 @@ window.onload = function() {
   // set up html elements
   let body = document.body;
   let container = document.getElementsByClassName("container")[0];
-  let container2 = container.cloneNode(true);
-  let container3 = container.cloneNode(true);
-  body.appendChild(container2);
-  body.appendChild(container3);
+  let additionalElements = 3;
+  
+  for (let i = 0; i < additionalElements; i++) {
+    let containerClone = container.cloneNode(true);
+    body.appendChild(containerClone);
+  }
 
   // animate them
 
