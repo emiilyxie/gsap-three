@@ -41,8 +41,6 @@ window.onload = function() {
     end: "bottom bottom",
     ease: "power2.in",
     scrub: 1,
-    duration: 2,
-    ease: "power2.in",
     onEnter: (elements, triggers) => {
       gsap.from(elements, {
         opacity: 0, 
