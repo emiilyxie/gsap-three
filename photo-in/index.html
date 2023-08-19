@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+  <title>gsap three</title>
+  <meta name="description" content="gsap three">
+  <meta name="keywords" content="gsap three">
+  <meta name="author" content="emily">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <!-- <svg>
+      <defs>
+        <path viewPort="0 0 800 800" id="textcircle" fill="none" stroke="#FFFFFF" stroke-width="5"
+              d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250">
+        </path>
+        <text id="textcircletext" dy="-25" >  
+          <textPath style="font-size: 50" xlink:href="#textcircle">. text being animated around a circle . text being animated around a circle </textPath>
+        </text>
+      </defs>
+    </svg> -->
+
+  <div class="word-load">
+    <div class="word">thisis</div>
+    <div class="word">animation</div>
+    <div class="word">interaction</div>
+    <div class="word">tion</div>
+    <div class="word">uiuxtypeofvibe</div>
+  </div>
+
+  <div class="hero">
+    <img src="https://images.pexels.com/photos/4270462/pexels-photo-4270462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+    <div class="big-words">
+      <p class="word1">Word1</p>
+      <p class="word2">Word2</p>
+    </div>
+    <div>
+      <svg id="textCircle" width="300px" height="300px" viewBox="0 0 200 200">
+        <path id="circlePath" d="M100,20 A80,80 0 1,1 20,100 A80,80 0 1,1 100,180 A80,80 0 1,1 180,100 A80,80 0 1,1 100,20 Z"
+        fill="none" stroke="black" stroke-width="2"></path>
+        <text dy="-5">
+          <textPath href="#circlePath">CURVED TEXT CURVED TEXT CURVED TEXT CURVED TEXT CURVED </textPath>
+        </text>
+      </svg>
+      <!-- <svg viewBox="0 0 800 800" width="50" height="50" id="spintext">
+        <use xlink:href="#textcircle"/>
+        <use xlink:href="#textcircletext"/>
+      </svg> -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>
