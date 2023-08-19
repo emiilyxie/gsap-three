@@ -1,28 +1,35 @@
 window.onload = function() {
 
+  // set up html elements
   let body = document.body;
   let container = document.getElementsByClassName("container")[0];
-  let list = document.getElementsByClassName("list")[0];
-  let clone = list.cloneNode(true);
-  container.appendChild(clone);
+  let container2 = container.cloneNode(true);
+  let container3 = container.cloneNode(true);
+  body.appendChild(container2);
+  body.appendChild(container3);
 
-  let offsetWidth = list.offsetWidth;
-  console.log(offsetWidth)
+  // animate them
 
-  let tl = gsap.timeline({ defaults: { duration: 10 }, repeat: -1});
+  let animateText = (container, i) => {
+    let list = container.getElementsByClassName("list")[0];
+    let clone = list.cloneNode(true);
 
-  tl.fromTo([list, clone], {x: 0}, { x: -offsetWidth, ease: Linear.easeNone});
-  tl.set(list, {x: offsetWidth, duration: 0});
-  tl.to(clone, { x: -2 * offsetWidth, ease: Linear.easeNone});
-  tl.to(list, { x: 0, ease: Linear.easeNone}, "<");
+    container.appendChild(clone);
+    let offsetWidth = list.offsetWidth;
 
-  document.addEventListener("click", () => {
-    if (tl.paused()) {
-      tl.resume();
+    let tl = gsap.timeline({ defaults: { duration: 15 }, repeat: -1});
+    tl.fromTo([list, clone], {x: 0}, { x: -offsetWidth, ease: Linear.easeNone});
+    tl.set(list, {x: offsetWidth, duration: 0});
+    tl.to(clone, { x: -2 * offsetWidth, ease: Linear.easeNone});
+    tl.to(list, { x: 0, ease: Linear.easeNone}, "<");
+
+    if (i % 2 == 1) {
+      tl.reverse(0);
     }
-    else {
-      tl.pause();
-    }
+  }
+
+  document.querySelectorAll(".container").forEach((container, i) => {
+    animateText(container, i);
   });
 
 }
